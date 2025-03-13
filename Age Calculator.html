@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+  <link rel="icon" href="./wbd7.jpeg">
+
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    body{
+      background-color: rgb(201, 223, 243);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .calculator{
+      background-color: white;
+      padding: 20px;
+      height: auto;
+      width: 300px;
+      text-align: center;
+      font-family: sans-serif;
+      border-radius: 10px;
+      box-shadow: 0px 0px 4px 0px;
+    }
+
+    .calculator h1{
+      margin-bottom: 20px;
+    }
+
+    .calculator input{
+      padding: 10px;
+      width: 250px;
+      margin-bottom: 20px;
+    }
+
+    #calculator button{
+      padding: 10px;
+      cursor: pointer;
+      background-color: rgba(63, 63, 207, 0.842);
+      border: 1px solid blue;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      
+    }
+
+    #calculator button:hover{
+      background-color: blue;
+    }
+
+    .calculator p{
+      margin-top: 20px;
+      padding: 10px;
+      border-bottom: 1px solid blue;
+      border-radius: 5px;
+      color: white;
+      background-color: rgba(43, 43, 165, 0.651);
+    }
+
+    .btnChange{
+      background-color: rgba(0, 0, 255, 0.753);
+      height: 25px;
+      width: 50px;
+      border-radius: 65px;
+    }
+
+    .insBtnChange{
+      height: 25px;
+      width: 50%;
+      border-radius: 100%;
+      background-color: aliceblue;
+      box-shadow: 0px 0px 4px 0px rgb(9, 24, 235);
+      margin-left: 0px;
+      cursor: pointer;
+    }
+
+    .changeIns{
+      margin-left: 25px;
+    }
+
+    .changeOut{
+      background-color: red;
+      box-shadow: 0px 0px 3px 0px;
+    }
+
+    .calculator1{
+      background-color: rgb(228, 69, 69);
+      padding: 20px;
+      height: auto;
+      width: 300px;
+      text-align: center;
+      font-family: sans-serif;
+      border-radius: 10px;
+      box-shadow: 0px 0px 100px 20px rgb(255, 0, 0);
+    }
+
+    .page{
+      background-color: black;
+    }
+
+    #calculator .btn1{
+      padding: 10px;
+      cursor: pointer;
+      background-color: rgba(43, 6, 6, 0.842);
+      border: 1px solid rgb(255, 0, 0);
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0px 0px 10px 1px rgb(0, 0, 0);
+    }
+
+    #calculator .btn1:hover{
+      background-color: black;
+    }
+
+    #calculator .pp{
+      background-color: rgb(95, 7, 7);
+      color: white;
+      box-shadow: 0px 0px 2px 0px;
+    }
+   
+  </style>
+</head>
+
+<body>
+
+    <div class="calculator" id="calculator">
+      <div class="btnChange" id="btnChange"><div class="insBtnChange" id="insBtnChange" onclick="Change()"></div></div>
+      <h1>Age Calculator</h1>
+      <input type="text" class="input" id="input" placeholder="Enter Your age">
+      <button id="btn" onclick="calculateAge()">Calculate</button>
+      <p class='text' id="text"></p>
+    </div>
+
+
+  
+
+  
+  <script>
+    function calculateAge() {
+      const input = document.querySelector('#input');
+      const text = document.querySelector('#text');
+      const age = input.value;
+      const birthyear = 2025 - age;
+      text.textContent = `You were born in ${birthyear}`;
+     
+      if(!age){
+        text.textContent = "Please enter your age";
+      }
+    }
+
+    const change = document.querySelector("#insBtnChange");
+    const changeOut = document.querySelector('#btnChange');
+    const change1 = document.querySelector('#calculator');
+    const page = document.querySelector('body');
+    const btn = document.querySelector('button');
+    const text = document.querySelector("#text");
+
+    change.innerHTML = '';
+
+    function Change(){
+
+      if (change.innerHTML === ''){
+        change.classList.add('changeIns');
+        changeOut.classList.add('changeOut');
+        change1.classList.add('calculator1');
+        page.classList.add('page');
+        btn.classList.add('btn1');
+        
+        text.classList.add('pp');
+ 
+        change.innerHTML = ' '
+
+      }else{
+        change.classList.remove('changeIns');
+        changeOut.classList.remove('changeOut');
+        change1.classList.remove('calculator1');
+        page.classList.remove('page')
+        btn.classList.remove('calculatorButton1')
+        btn.classList.remove('btn1');
+        text.classList.remove('pp');
+        
+        change.innerHTML = ''
+      }
+      
+
+    
+    }
+  </script>
+</body>
+</html>
